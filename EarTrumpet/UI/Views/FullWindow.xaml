@@ -90,18 +90,21 @@
                BasedOn="{StaticResource BaseDeviceVolumeTextStyle}"
                TargetType="{x:Type TextBlock}">
             <Setter Property="Foreground" Value="{DynamicResource LightOrDark_Text}" />
+            <Setter Property="FontSize" Value="{DynamicResource DeviceVolumeTextFontSize}" />
         </Style>
 
         <Style x:Key="AppVolumeTextStyle"
                BasedOn="{StaticResource BaseAppVolumeTextStyle}"
                TargetType="{x:Type TextBlock}">
             <Setter Property="Foreground" Value="{DynamicResource LightOrDark_Text}" />
+            <Setter Property="FontSize" Value="{DynamicResource AppVolumeTextFontSize}" />
         </Style>
 
         <Style x:Key="DeviceTitleTextStyle"
                BasedOn="{StaticResource BaseDeviceTitleTextStyle}"
                TargetType="{x:Type TextBlock}">
             <Setter Property="Foreground" Value="{DynamicResource LightOrDark_Text}" />
+            <Setter Property="FontSize" Value="{DynamicResource LargeWindowTextFontSize}" />
         </Style>
 
         <Style x:Key="VolumeSliderStyle"

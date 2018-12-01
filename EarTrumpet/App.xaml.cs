@@ -4,6 +4,7 @@ using EarTrumpet.Extensions;
 using EarTrumpet.Interop.Helpers;
 using EarTrumpet.UI.Controls;
 using EarTrumpet.UI.Helpers;
+using EarTrumpet.UI.Metrics;
 using EarTrumpet.UI.Services;
 using EarTrumpet.UI.Themes;
 using EarTrumpet.UI.ViewModels;
@@ -39,6 +40,8 @@ namespace EarTrumpet
             }
 
             ((ThemeManager)Resources["ThemeManager"]).SetTheme(ThemeData.GetBrushData());
+
+            ((MetricsManager)Resources["MetricsManager"]).Apply(MetricsData.Get(1));
 
             PlaybackDevicesViewModel = new DeviceCollectionViewModel(DataModelFactory.CreateAudioDeviceManager(AudioDeviceKind.Playback));
             PlaybackDevicesViewModel.Ready += MainViewModel_Ready;

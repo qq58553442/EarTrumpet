@@ -189,6 +189,8 @@
     <Compile Include="DataModel\Internal\Services\ProcessWatcherService.cs" />
     <Compile Include="UI\IconLoadInfo.cs" />
     <Compile Include="UI\MenuItemTemplateSelector.cs" />
+    <Compile Include="UI\Metrics\MetricsData.cs" />
+    <Compile Include="UI\Metrics\MetricsManager.cs" />
     <Compile Include="UI\Services\ErrorReportingService.cs" />
     <Compile Include="UI\Services\StartupUWPDialogDisplayService.cs" />
     <Compile Include="UI\Themes\IResolveColor.cs" />
@@ -309,6 +311,10 @@
     <Compile Include="UI\Views\AppItemView.xaml.cs">
       <DependentUpon>AppItemView.xaml</DependentUpon>
     </Compile>
+    <Page Include="UI\Metrics\Metrics.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="UI\Views\AddonManagerView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

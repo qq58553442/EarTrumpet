@@ -2,20 +2,20 @@
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:ctl="clr-namespace:EarTrumpet.UI.Controls"
-             Height="{StaticResource AppItemCellHeight}"
+             Height="{DynamicResource AppItemCellHeight}"
              IsTabStop="False"
              MouseEnter="UserControl_MouseEnter">
     <Grid Name="GridRoot" Background="Transparent">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="{StaticResource IconCellWidth}" />
+            <ColumnDefinition Width="{DynamicResource IconCellWidth}" />
             <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="{StaticResource VolumeCellWidth}" />
+            <ColumnDefinition Width="{DynamicResource VolumeCellWidth}" />
         </Grid.ColumnDefinitions>
 
-        <Grid Grid.Column="0" Margin="{StaticResource DeviceOrAppIconMargin}">
+        <Grid Grid.Column="0" Margin="{DynamicResource DeviceOrAppIconMargin}">
 
-            <Border Width="{StaticResource AppIconSize}"
-                    Height="{StaticResource AppIconSize}"
+            <Border Width="{DynamicResource AppIconSize}"
+                    Height="{DynamicResource AppIconSize}"
                     HorizontalAlignment="Center">
                 <Border.Style>
                     <Style TargetType="Border">
@@ -35,8 +35,8 @@
                     </Style>
                 </Border.Style>
                 <Grid>
-                    <Image Width="{StaticResource AppIconSize}"
-                           Height="{StaticResource AppIconSize}"
+                    <Image Width="{DynamicResource AppIconSize}"
+                           Height="{DynamicResource AppIconSize}"
                            Source="{Binding Icon, Converter={StaticResource iconConverter}, Mode=OneTime}"
                            Stretch="Fill" />
                     <Border>
@@ -65,8 +65,8 @@
             </Border>
 
             <Button Name="MuteButton"
-                    Width="{StaticResource AppIconSize}"
-                    Height="{StaticResource AppIconSize}"
+                    Width="{DynamicResource AppIconSize}"
+                    Height="{DynamicResource AppIconSize}"
                     Click="MuteButton_Click"
                     IsTabStop="False"
                     ToolTip="{Binding DisplayName}">
@@ -80,7 +80,7 @@
                     </Style>
                 </Button.Style>
                 <Button.Content>
-                    <TextBlock FontSize="24"
+                    <TextBlock FontSize="{DynamicResource AppIconMuteTextSize}"
                                Opacity="0.8"
                                Style="{DynamicResource PerThemeGlyphTextBlockStyle}"
                                Text="&#xE74F;" />

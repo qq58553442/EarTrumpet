@@ -108,17 +108,21 @@
                BasedOn="{StaticResource BaseDeviceVolumeTextStyle}"
                TargetType="{x:Type TextBlock}">
             <Setter Property="Foreground" Value="{DynamicResource Unicolor_Text}" />
+            <Setter Property="FontSize" Value="{DynamicResource DeviceVolumeTextFontSize}" />
         </Style>
 
         <Style x:Key="AppVolumeTextStyle"
                BasedOn="{StaticResource BaseAppVolumeTextStyle}"
                TargetType="{x:Type TextBlock}">
             <Setter Property="Foreground" Value="{DynamicResource Unicolor_Text}" />
+            <Setter Property="FontSize" Value="{DynamicResource AppVolumeTextFontSize}" />
         </Style>
 
         <Style x:Key="DeviceTitleTextStyle"
                BasedOn="{StaticResource BaseDeviceTitleTextStyle}"
-               TargetType="{x:Type TextBlock}" />
+               TargetType="{x:Type TextBlock}">
+            <Setter Property="FontSize" Value="{DynamicResource LargeWindowTextFontSize}" />
+        </Style>
 
         <ControlTemplate x:Key="VolumeSliderTemplate" TargetType="{x:Type Slider}">
             <Grid>
@@ -132,9 +136,13 @@
                                       Style="{StaticResource SliderButtonStyle}" />
                     </Track.DecreaseRepeatButton>
                     <Track.Thumb>
-                        <Thumb Name="SliderThumb"
-                               Foreground="{DynamicResource Unicolor_SliderThumb}"
-                               Style="{StaticResource SliderThumbStyle}" />
+                        <Thumb Name="SliderThumb" Foreground="{DynamicResource Unicolor_SliderThumb}">
+                            <Thumb.Style>
+                                <Style BasedOn="{StaticResource SliderThumbStyle}" TargetType="{x:Type Thumb}">
+                                    <Setter Property="Height" Value="{DynamicResource SliderThumbHeight}" />
+                                </Style>
+                            </Thumb.Style>
+                        </Thumb>
                     </Track.Thumb>
                     <Track.IncreaseRepeatButton>
                         <RepeatButton Name="SliderRight"
@@ -263,7 +271,7 @@
                         </ItemsControl.ItemTemplate>
                     </ItemsControl>
 
-                    <Button Height="{StaticResource DeviceTitleCellHeight}"
+                    <Button Height="{DynamicResource DeviceTitleCellHeight}"
                             Command="{Binding ExpandCollapse}"
                             IsEnabled="{Binding CanExpand}">
                         <Button.Style>

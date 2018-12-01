@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:bcl="clr-namespace:System;assembly=mscorlib"
              xmlns:conv="clr-namespace:EarTrumpet.UI.Converters"
+             xmlns:metrics="clr-namespace:EarTrumpet.UI.Metrics"
              xmlns:themes="clr-namespace:EarTrumpet.UI.Themes"
              xmlns:views="clr-namespace:EarTrumpet.UI.Views"
              xmlns:vm="clr-namespace:EarTrumpet.UI.ViewModels"
@@ -12,9 +13,11 @@
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="UI\Themes\SystemThemeColors.xaml" />
+                <ResourceDictionary Source="UI\Metrics\Metrics.xaml" />
             </ResourceDictionary.MergedDictionaries>
 
             <themes:ThemeManager x:Key="ThemeManager" />
+            <metrics:MetricsManager x:Key="MetricsManager" />
 
             <conv:InvertableVisibilityConverter x:Key="visConverter" />
             <conv:IconConverter x:Key="iconConverter" />
@@ -25,23 +28,12 @@
             <Thickness x:Key="PopupBorderThickness">1</Thickness>
             <bcl:Double x:Key="WindowBlurRadius">10</bcl:Double>
             <bcl:Double x:Key="WindowAndItemSize">360</bcl:Double>
-            <bcl:Double x:Key="DeviceIconSize">24</bcl:Double>
-            <bcl:Double x:Key="AppIconSize">24</bcl:Double>
-            <win:GridLength x:Key="IconCellWidth">65</win:GridLength>
-            <win:GridLength x:Key="VolumeCellWidth">63</win:GridLength>
-            <bcl:Double x:Key="DeviceTitleCellHeight">44</bcl:Double>
-            <bcl:Double x:Key="AppItemCellHeight">44</bcl:Double>
-            <bcl:Double x:Key="DeviceItemCellHeight">54</bcl:Double>
-            <bcl:Double x:Key="AppVolumeTextFontSize">18</bcl:Double>
-            <bcl:Double x:Key="DeviceVolumeTextFontSize">24</bcl:Double>
-            <bcl:Double x:Key="LargeWindowTextFontSize">15</bcl:Double>
             <Thickness x:Key="WindowMargin">12,0,12,0</Thickness>
             <Thickness x:Key="VolumeAppListMargin">0,6,0,6</Thickness>
             <Thickness x:Key="DeviceOrAppIconMargin">5,0,0,0</Thickness>
             <Thickness x:Key="VolumeTextMargin">-1,0,0,0</Thickness>
             <bcl:Double x:Key="NoItemsPaneHeight">50</bcl:Double>
             <Thickness x:Key="NoItemsPaneMargin">0,8</Thickness>
-            <bcl:Double x:Key="SliderThumbWidth">8</bcl:Double>
 
             <Style x:Key="CaptionButtonStyle" TargetType="Button">
                 <Setter Property="WindowChrome.IsHitTestVisibleInChrome" Value="True" />
@@ -167,7 +159,6 @@
 
             <Style x:Key="SliderThumbStyle" TargetType="{x:Type Thumb}">
                 <Setter Property="OverridesDefaultStyle" Value="true" />
-                <Setter Property="Height" Value="24" />
                 <Setter Property="Width" Value="{StaticResource SliderThumbWidth}" />
                 <Setter Property="Template">
                     <Setter.Value>
@@ -251,20 +242,16 @@
                 <Setter Property="Margin" Value="{StaticResource VolumeTextMargin}" />
                 <Setter Property="HorizontalAlignment" Value="Center" />
                 <Setter Property="VerticalAlignment" Value="Center" />
-                <Setter Property="FontSize" Value="{StaticResource DeviceVolumeTextFontSize}" />
-
             </Style>
 
             <Style x:Key="BaseAppVolumeTextStyle" TargetType="{x:Type TextBlock}">
                 <Setter Property="Margin" Value="{StaticResource VolumeTextMargin}" />
                 <Setter Property="HorizontalAlignment" Value="Center" />
                 <Setter Property="VerticalAlignment" Value="Center" />
-                <Setter Property="FontSize" Value="{StaticResource AppVolumeTextFontSize}" />
             </Style>
 
             <Style x:Key="BaseDeviceTitleTextStyle" TargetType="{x:Type TextBlock}">
                 <Setter Property="VerticalAlignment" Value="Center" />
-                <Setter Property="FontSize" Value="{StaticResource LargeWindowTextFontSize}" />
             </Style>
 
             <Style x:Key="BaseVirtualTitleBarBorderStyle" TargetType="{x:Type Border}">
@@ -690,6 +677,7 @@
                                 <Thumb.Style>
                                     <Style BasedOn="{StaticResource SliderThumbStyle}" TargetType="{x:Type Thumb}">
                                         <Setter Property="Foreground" Value="{DynamicResource LightOrDark_SliderTrackLeft}" />
+                                        <Setter Property="Height" Value="{DynamicResource SliderThumbHeight}" />
                                         <Style.Triggers>
                                             <DataTrigger Binding="{Binding Path=IsMouseOver, RelativeSource={RelativeSource TemplatedParent}}" Value="true">
                                                 <Setter Property="Foreground" Value="{DynamicResource LightOrDark_SliderThumbHover}" />

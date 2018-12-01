@@ -2,9 +2,11 @@
 using EarTrumpet.Extensions;
 using EarTrumpet.Interop.Helpers;
 using EarTrumpet.UI.Helpers;
+using EarTrumpet.UI.Metrics;
 using EarTrumpet.UI.Themes;
 using EarTrumpet.UI.ViewModels;
 using System;
+using System.Diagnostics;
 using System.Linq;
 using System.Windows;
 using System.Windows.Input;
@@ -41,6 +43,7 @@ namespace EarTrumpet.UI.Views
                 Deactivated += FlyoutWindow_Deactivated;
             }
             SourceInitialized += FlyoutWindow_SourceInitialized;
+            PreviewMouseWheel += FlyoutWindow_PreviewMouseWheel;
             Microsoft.Win32.SystemEvents.DisplaySettingsChanged += SystemEvents_DisplaySettingsChanged;
             Closing += FlyoutWindow_Closing;
 
@@ -51,6 +54,15 @@ namespace EarTrumpet.UI.Views
             Hide();
 
             _viewModel.ChangeState(FlyoutViewModel.ViewState.Hidden);
+        }
+
+        private void FlyoutWindow_PreviewMouseWheel(object sender, MouseWheelEventArgs e)
+        {
+            if (Keyboard.IsKeyDown(Key.LeftCtrl))
+            {
+                MetricsData.ChangeFromMouseDelta(e.Delta);
+                UpdateWindowBounds();
+            }
         }
 
         private void FlyoutWindow_Closing(object sender, System.ComponentModel.CancelEventArgs e)

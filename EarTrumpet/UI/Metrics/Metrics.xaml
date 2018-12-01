@@ -1,0 +1,23 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:bcl="clr-namespace:System;assembly=mscorlib"
+                    xmlns:local="clr-namespace:EarTrumpet.UI"
+                    xmlns:win="clr-namespace:System.Windows;assembly=PresentationFramework">
+    <bcl:Double x:Key="DeviceIconSize">24</bcl:Double>
+    <bcl:Double x:Key="DeviceIconTextSize">24</bcl:Double>
+    <bcl:Double x:Key="AppIconSize">24</bcl:Double>
+    <bcl:Double x:Key="AppIconMuteTextSize">24</bcl:Double>
+    <bcl:Double x:Key="DeviceTitleCellHeight">44</bcl:Double>
+    <bcl:Double x:Key="AppItemCellHeight">44</bcl:Double>
+    <bcl:Double x:Key="DeviceItemCellHeight">54</bcl:Double>
+    <bcl:Double x:Key="AppVolumeTextFontSize">18</bcl:Double>
+    <bcl:Double x:Key="DeviceVolumeTextFontSize">24</bcl:Double>
+
+    <win:GridLength x:Key="IconCellWidth">65</win:GridLength>
+    <win:GridLength x:Key="VolumeCellWidth">63</win:GridLength>
+
+    <bcl:Double x:Key="SliderThumbWidth">8</bcl:Double>
+    <bcl:Double x:Key="SliderThumbHeight">24</bcl:Double>
+    <bcl:Double x:Key="LargeWindowTextFontSize">15</bcl:Double>
+
+</ResourceDictionary>
