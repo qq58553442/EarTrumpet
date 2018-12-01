@@ -40,7 +40,11 @@ namespace EarTrumpet.UI.Metrics
 
         public static void ChangeFromMouseDelta(int delta)
         {
-            s_currentSize += Math.Sign(delta) * 0.25;
+            s_currentSize += Math.Sign(delta) * 0.05;
+            if (s_currentSize > 1)
+            {
+                s_currentSize = 1;
+            }
 
             MetricsManager.Current.Apply(Get(s_currentSize));
         }

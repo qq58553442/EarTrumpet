@@ -140,6 +140,7 @@
                             <Thumb.Style>
                                 <Style BasedOn="{StaticResource SliderThumbStyle}" TargetType="{x:Type Thumb}">
                                     <Setter Property="Height" Value="{DynamicResource SliderThumbHeight}" />
+                                    <Setter Property="Width" Value="{DynamicResource SliderThumbWidth}" />
                                 </Style>
                             </Thumb.Style>
                         </Thumb>

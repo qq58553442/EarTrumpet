@@ -62,6 +62,7 @@ namespace EarTrumpet.UI.Views
             {
                 MetricsData.ChangeFromMouseDelta(e.Delta);
                 UpdateWindowBounds();
+                e.Handled = true;
             }
         }
 
